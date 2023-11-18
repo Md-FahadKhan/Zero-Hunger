@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "AdminDashBoard";
+}
+
+<main class="container text-center">
+    <h2 class="mb-4">Admin Dashboard</h2>
+    <h3>All the employee information</h3>
+   
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var food in ViewBag.Employee)
+                    {
+                        <tr>
+                            <th scope="row">@food.E_id</th>
+                            <td>@food.E_name</td>
+                            <td>@food.E_address</td>
+                            <td>@food.E_gender</td>
+                            <td>@food.E_phone</td>
+                            <td><a href="/Admin/EditEmployee/@food.E_id" class="btn btn-success">Edit</a></td>
+                            <td><a href="/Admin/DeleteEmployee/@food.E_id" class="btn btn-danger">Delete</a></td>
+
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+        <form action="" method="post">
+            <fieldset>
+                <div class="form-group">
+                    <a href="/Admin/AddEmployee" class="btn btn-success">Add Employee</a>
+                </div>
+            </fieldset>
+        </form>
+</main>

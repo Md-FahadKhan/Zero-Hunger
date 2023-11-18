@@ -1,0 +1,57 @@
+﻿@model Zero_Hunger.EF.Employee
+
+@{
+    ViewBag.Title = "EditEmployee";
+}
+
+<h2>Edit Employee</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+           
+            <tr>
+                <th>Name</th>
+                <td>
+                    @Html.EditorFor(model => model.E_name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.E_name, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>
+                    @Html.EditorFor(model => model.E_gender, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.E_gender, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>
+                    @Html.EditorFor(model => model.E_address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.E_address, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>
+                    @Html.EditorFor(model => model.E_phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.E_phone, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+           
+        </table>
+
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "AdminDashBoard")
+</div>
